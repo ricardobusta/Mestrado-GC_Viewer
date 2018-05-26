@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>590</width>
+    <height>527</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>GC::Viewer</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* ===QWidget=== */
+
+QWidget{
+	background-color: rgb(51, 51, 51);
+/*	background-color: #000;*/
+	color: #fff;
+}
+
+QWidget::disabled{
+	color: #666;
+}
+
+/* ===QSlider=== */
+QSlider::groove:horizontal {
+	background: #999;
+	position: absolute; /* absolutely position 4px from the left and right of the widget. setting margins on the widget should work too... */
+	top: 6px;bottom: 6px;
+	left: 6px; right: 6px;
+ }
+
+ QSlider::handle:horizontal {
+	height: 10px;
+	width: 10px;
+    background: #fff;
+	border: 1px solid #999;
+	margin:  -4px; /* expand outside the groove */
+ }
+
+QSlider::handle::hover:horizontal{
+	border: 1px solid #fff;
+}
+
+/* ===QGroupBox=== */
+QGroupBox{
+	border: 2px solid white;
+	padding: 0px;
+	margin: 5px;
+}
+
+QGroupBox::title{
+	subcontrol-origin: margin;
+	subcontrol-position: top center;
+}
+
+/* ===QCheckBox=== */
+QCheckBox::indicator{
+	border: 1px solid #999;
+	width: 10px;
+	height: 10px;
+}
+
+QCheckBox::indicator::hover{
+	border: 1px solid #fff;
+}
+
+QCheckBox::indicator::disabled{
+	border: 1px solid #666;
+	background-color: #666;
+}
+
+QCheckBox::indicator::checked{
+	background-color: #fff;
+}
+
+QCheckBox::indicator::unchecked{
+}
+
+/* ===QComboBox=== */
+QComboBox{
+	border: 1px solid white;
+}
+
+QComboBox::drop-down{
+	border: none;
+}
+
+QComboBox::down-arrow{
+	border-image: url(:/resources/arrow.png);
+}
+
+/* ===QPushButton=== */
+QPushButton{
+	border:1px solid white;
+	width: 20px;
+	height: 20px;
+}
+
+/* ===QListWidget=== */
+QListWidget{
+	border: 1px solid white;
+}
+
+QListWidget::item{
+	border: 1px solid none;
+}
+
+QListWidget::item:hover{
+	border: 1px solid white;
+}
+
+QListWidget::item:selected{
+	border: 1px dashed #999;
+}
+
+QListWidget::item:active{
+	border: 1px solid rgb(51, 51, 51);
+}
+
+QListWidget::item::!active{
+}
+
+/* ===QScrollBar=== */</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,10">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QPushButton" name="load_button">
+        <property name="text">
+         <string>&amp;Load From File</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QListWidget" name="listWidget"/>
+      </item>
+      <item>
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="2" column="1">
+         <widget class="QCheckBox" name="checkBox_4">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>Show Index</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QCheckBox" name="user_color_check">
+          <property name="text">
+           <string>&amp;User Color</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QCheckBox" name="wireframe_checkBox">
+          <property name="text">
+           <string>&amp;Wireframe</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QCheckBox" name="checkBox_2">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>Show Axis</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QCheckBox" name="checkBox_3">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>Show Normals</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QCheckBox" name="checkBox">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>Orientation</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QCheckBox" name="checkBox_5">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>CheckBox</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QCheckBox" name="color_button">
+          <property name="text">
+           <string>Window &amp;Color</string>
+          </property>
+          <property name="checkable">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QFormLayout" name="formLayout">
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>FPS</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QSpinBox" name="fps_spin">
+          <property name="maximum">
+           <number>60</number>
+          </property>
+          <property name="value">
+           <number>1</number>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="styleSheet">
+         <string notr="true">font: 7pt;</string>
+        </property>
+        <property name="text">
+         <string>by Ricardo Bustamante de Queiroz
+ricardobqueiroz@gmail.com</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="GLWidget" name="glwidget" native="true">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>100</width>
+          <height>100</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSlider" name="spread_slider">
+        <property name="maximum">
+         <number>100</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSlider" name="shrink_slider">
+        <property name="maximum">
+         <number>100</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>GLWidget</class>
+   <extends>QWidget</extends>
+   <header>interface/glwidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

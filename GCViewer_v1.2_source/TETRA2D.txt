@@ -1,0 +1,35 @@
+#Tipo de arquivo. INPUT, HULL ou TETRA
+TETRA2D
+Ricardo Bustamante de Queiroz
+#nº de frames
+1
+#nº de objetos
+1
+#Para cada objeto:
+#Nome do objeto
+Exemplo de Tetraedralização
+#Cor do objeto
+009999
+#Espalhamento dos pontos... é um valor que deve ser maior que a maior coordenada em valor absoluto. Apenas para desenhar proporcionalmente aos outros objetos. 1.0 significa que o meu objeto cabe em um cubo de lado 2 (-1 a 1)
+1.0
+#Numero de pontos
+4
+#frame 0
+#Para cada ponto, as 2 coordenadas.
+-1
+-1
+-1
+1
+1
+1
+1
+-1
+#Numero de triangulos
+2
+#Para cada triangulo, 3 indices de ponto, indo de 0 ao Nº de pontos N-1
+0
+1
+2
+0
+2
+3
